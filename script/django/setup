@@ -1,7 +1,7 @@
 #!/bin/bash
 cd django
 uv venv --python 3.9
-source .venv/bin/activate # or .\Scripts\activate on Windows
+source .venv/bin/activate 
 uv pip install -r requirements.txt
 ./manage.py makemigrations
 ./manage.py migrate

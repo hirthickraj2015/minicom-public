@@ -16,7 +16,7 @@ Including another URLconf
 
 from django.urls import include, path
 
-from minicom import api
+from minicom import api, views
 
 urlpatterns = [
     # Examples:
@@ -24,6 +24,9 @@ urlpatterns = [
     # re_path(r'^blog/', include('blog.urls')),
     # path('blog/', include('blog.urls')),
 
+    path('', views.index, name='index'),
+    path('client1/', views.client1, name='client1'),
+    path('client2/', views.client2, name='client2'),
     path('foo', api.verify),
-    path('bar', api.verify)
+    path('bar', api.verify),
 ]

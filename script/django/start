@@ -1,5 +1,6 @@
 #!/bin/bash
+cd django
+source .venv/bin/activate
 
-source ./django/bin/activate
-
-./django/manage.py runserver 3000
+# Run with Daphne (ASGI server) for WebSocket support
+daphne -b 0.0.0.0 -p 3000 minicom.asgi:application

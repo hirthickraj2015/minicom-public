@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniCom - Real-time Chat Application</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 48px;
+        }
+
+        .features {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .features h2 {
+            font-size: 20px;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .feature-item::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .clients-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .client-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 32px 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .client-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .client-card.client1:hover {
+            border-color: #667eea;
+        }
+
+        .client-card.client2:hover {
+            border-color: #f093fb;
+        }
+
+        .client-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .client1 .client-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .client2 .client-icon {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .client-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .client-description {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .instructions {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .instructions h3 {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .instructions p {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MiniCom</h1>
+        <p class="subtitle">Real-time WebSocket Chat Application</p>
+
+        <div class="features">
+            <h2>Features</h2>
+            <ul class="feature-list">
+                <li class="feature-item">Real-time bidirectional messaging</li>
+                <li class="feature-item">Typing indicators</li>
+                <li class="feature-item">Message history (last 50 messages)</li>
+                <li class="feature-item">User presence tracking</li>
+                <li class="feature-item">Connection status monitoring</li>
+                <li class="feature-item">Auto-reconnection</li>
+            </ul>
+        </div>
+
+        <div class="clients-container">
+            <a href="/client1/" class="client-card client1">
+                <div class="client-icon">C1</div>
+                <h3 class="client-title">Client 1</h3>
+                <p class="client-description">Open this in your first browser window or tab</p>
+            </a>
+
+            <a href="/client2/" class="client-card client2">
+                <div class="client-icon">C2</div>
+                <h3 class="client-title">Client 2</h3>
+                <p class="client-description">Open this in your second browser window or tab</p>
+            </a>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Test</h3>
+            <p>
+                1. Open <strong>Client 1</strong> in one browser window/tab<br>
+                2. Open <strong>Client 2</strong> in another browser window/tab<br>
+                3. Start chatting! Messages will sync in real-time<br>
+                4. Try typing to see the typing indicator<br>
+                5. Refresh to see message history persist
+            </p>
+        </div>
+
+        <div class="tech-stack">
+            <span class="tech-badge">Django</span>
+            <span class="tech-badge">Django Channels</span>
+            <span class="tech-badge">WebSockets</span>
+            <span class="tech-badge">SQLite</span>
+            <span class="tech-badge">Vanilla JavaScript</span>
+        </div>
+    </div>
+</body>
+</html>

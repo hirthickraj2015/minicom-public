@@ -36,10 +36,11 @@ INSTALLED_APPS = (
     #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    #'django.contrib.sessions',
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'channels',
     'minicom',
 )
 
@@ -74,6 +75,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'minicom.wsgi.application'
+
+# ASGI Application for Channels
+ASGI_APPLICATION = 'minicom.asgi.application'
+
+# Channel Layers (using in-memory backend for simplicity)
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'.*'
